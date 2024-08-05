@@ -1,149 +1,67 @@
-import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
-import plugin from "tailwindcss/plugin";
+import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
+  darkMode: ["class"],
   content: ["./src/**/*.{html,js,svelte,ts}"],
-
+  safelist: ["dark"],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px"
+      }
+    },
     extend: {
       colors: {
-        color: {
-          1: "#AC6AFF",
-          2: "#FFC876",
-          3: "#FF776F",
-          4: "#7ADB78",
-          5: "#858DFF",
-          6: "#FF98E2",
+        border: "hsl(var(--border) / <alpha-value>)",
+        input: "hsl(var(--input) / <alpha-value>)",
+        ring: "hsl(var(--ring) / <alpha-value>)",
+        background: "hsl(var(--background) / <alpha-value>)",
+        foreground: "hsl(var(--foreground) / <alpha-value>)",
+        primary: {
+          DEFAULT: "hsl(var(--primary) / <alpha-value>)",
+          foreground: "hsl(var(--primary-foreground) / <alpha-value>)"
         },
-        stroke: {
-          1: "#26242C",
+        secondary: {
+          DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
+          foreground: "hsl(var(--secondary-foreground) / <alpha-value>)"
         },
-        n: {
-          1: "#FFFFFF",
-          2: "#CAC6DD",
-          3: "#ADA8C3",
-          4: "#757185",
-          5: "#3F3A52",
-          6: "#252134",
-          7: "#15131D",
-          8: "#0E0C15",
-          9: "#474060",
-          10: "#43435C",
-          11: "#1B1B2E",
-          12: "#2E2A41",
-          13: "#6C7275",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
+          foreground: "hsl(var(--destructive-foreground) / <alpha-value>)"
         },
+        muted: {
+          DEFAULT: "hsl(var(--muted) / <alpha-value>)",
+          foreground: "hsl(var(--muted-foreground) / <alpha-value>)"
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent) / <alpha-value>)",
+          foreground: "hsl(var(--accent-foreground) / <alpha-value>)"
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover) / <alpha-value>)",
+          foreground: "hsl(var(--popover-foreground) / <alpha-value>)"
+        },
+        card: {
+          DEFAULT: "hsl(var(--card) / <alpha-value>)",
+          foreground: "hsl(var(--card-foreground) / <alpha-value>)"
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sora)", ...fontFamily.sans],
-        code: "var(--font-code)",
-        grotesk: "var(--font-grotesk)",
-      },
-      letterSpacing: {
-        tagline: ".15em",
-      },
-      spacing: {
-        0.25: "0.0625rem",
-        7.5: "1.875rem",
-        15: "3.75rem",
-      },
-      opacity: {
-        15: ".15",
-      },
-      transitionDuration: {
-        DEFAULT: "200ms",
-      },
-      transitionTimingFunction: {
-        DEFAULT: "linear",
-      },
-      zIndex: {
-        1: "1",
-        2: "2",
-        3: "3",
-        4: "4",
-        5: "5",
-      },
-      borderWidth: {
-        DEFAULT: "0.0625rem",
+        sans: [...fontFamily.sans]
       },
       backgroundImage: {
-        "radial-gradient": "radial-gradient(var(--tw-gradient-stops))",
-        "conic-gradient":
-          "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
-      },
-      screens: {
-        '2xl': { 'max': '1535px' },
-        // => @media (max-width: 1535px) { ... }
-
-        'xl': { 'max': '1279px' },
-        // => @media (max-width: 1279px) { ... }
-
-        'lg': { 'max': '950px' },
-        // => @media (max-width: 1023px) { ... }
-
-        'md': { 'max': '850px' },
-        // => @media (max-width: 767px) { ... }
-
-        'sm': { 'max': '480px' },
-
-      },
+        btn: "linear-gradient(to right, #42e1ac, #e4e142, #db42e1)",
+      }
     }
   },
-  plugins: [
-    plugin(function({ addBase, addComponents, addUtilities }) {
-      addBase({});
-      addComponents({
-        ".container": {
-          "@apply max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-15 xl:max-w-[87.5rem]":
-            {},
-        },
-        ".h1": {
-          "@apply font-semibold text-[2.5rem] leading-[3.25rem] md:text-[2.75rem] md:leading-[3.75rem] lg:text-[3.25rem] lg:leading-[4.0625rem] xl:text-[3.75rem] xl:leading-[4.5rem]":
-            {},
-        },
-        ".h2": {
-          "@apply text-[1.75rem] leading-[2.5rem] md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight":
-            {},
-        },
-        ".h3": {
-          "@apply text-[2rem] leading-normal md:text-[2.5rem]": {},
-        },
-        ".h4": {
-          "@apply text-[2rem] leading-normal": {},
-        },
-        ".h5": {
-          "@apply text-2xl leading-normal": {},
-        },
-        ".h6": {
-          "@apply font-semibold text-lg leading-8": {},
-        },
-        ".body-1": {
-          "@apply text-[0.875rem] leading-[1.5rem] md:text-[1rem] md:leading-[1.75rem] lg:text-[1.25rem] lg:leading-8":
-            {},
-        },
-        ".body-2": {
-          "@apply font-light text-[0.875rem] leading-6 md:text-base": {},
-        },
-        ".caption": {
-          "@apply text-sm": {},
-        },
-        ".tagline": {
-          "@apply font-grotesk font-light text-xs tracking-tagline uppercase":
-            {},
-        },
-        ".quote": {
-          "@apply font-code text-lg leading-normal": {},
-        },
-        ".button": {
-          "@apply font-code text-xs font-bold uppercase tracking-wider": {},
-        },
-      });
-      addUtilities({
-        ".tap-highlight-color": {
-          "-webkit-tap-highlight-color": "rgba(0, 0, 0, 0)",
-        },
-      });
-    }),
-  ],
-} as Config;
+};
+
+export default config;
