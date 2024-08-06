@@ -11,7 +11,7 @@
 			<a href="/">
 				<img src={image} alt="Brain Wave" />
 			</a>
-			<nav class="flex justify-center items-center gap-7 text-xs">
+			<nav class="flex justify-center items-center gap-7 md:hidden text-xs">
 				{#each navigation as navElement}
 					{#if navElement.onlyMobile == false}
 						<a
@@ -27,7 +27,7 @@
 			<div class="flex gap-7 items-center">
 				<a
 					href="#signup"
-					class="uppercase text-sm text-gray-400 font-semibold hover:text-white transform transition-all ease-in-out delay-200"
+					class="uppercase text-sm text-gray-400 md:hidden font-semibold hover:text-white transform transition-all ease-in-out delay-200"
 				>
 					new account
 				</a>
