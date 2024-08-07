@@ -13,7 +13,7 @@
 	onclick={toggleOpen}
 >
 	<div
-		class="rounded-b-lg rounded-tl-lg rounded-tr-3xl transform transition-all ease-in-out delay-150 hover:text-purple-600 bg-[#131216] flex items-center justify-center px-4 py-2 text-white uppercase"
+		class="rounded-b-lg rounded-tl-lg rounded-tr-3xl transition-colors hover:text-purple-600 bg-[#131216] flex items-center justify-center px-4 py-2 text-white uppercase"
 	>
 		<a href={ancher ? ancher : '#test'} class="md:hidden">
 			{title}

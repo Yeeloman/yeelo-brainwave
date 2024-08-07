@@ -1,7 +1,9 @@
 <script>
+	import HeaderMenu from '$lib/components/HeaderMenu.svelte';
 	import brainWave from '$assets/brainwave.svg';
 	import BrainBtn from '$lib/components/BrainBtn.svelte';
 	import { navigation } from '$lib/constants';
+	import { page } from '$app/stores';
 	let { children } = $props();
 </script>
 
@@ -17,7 +19,9 @@
 						<a
 							href={navElement.url}
 							id={navElement.id}
-							class="uppercase text-gray-400 hover:text-white transform transition-all ease-in-out delay-150"
+							class="{$page.url.hash == navElement.url
+								? 'text-white'
+								: ''} uppercase text-gray-400 hover:text-white transition-colors"
 							>{navElement.title}
 						</a>
 					{/if}
@@ -27,7 +31,7 @@
 			<div class="flex gap-7 items-center">
 				<a
 					href="#signup"
-					class="uppercase text-sm text-gray-400 md:hidden font-semibold hover:text-white transform transition-all ease-in-out delay-200"
+					class="uppercase text-sm text-gray-400 md:hidden font-semibold hover:text-white transition-colors"
 				>
 					new account
 				</a>
@@ -35,6 +39,7 @@
 			</div>
 		</div>
 	</div>
+	<HeaderMenu />
 {/snippet}
 
 {@render Header(brainWave)}
