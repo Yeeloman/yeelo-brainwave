@@ -1,4 +1,7 @@
 <script>
+	import { page } from '$app/stores';
+	import { isOpen } from './isOpen';
+	import { navigation } from '$lib/constants';
 	import background from '$assets/background.jpg';
 </script>
 
@@ -32,7 +35,11 @@
 	></div>
 {/snippet}
 
-<div class="absolute inset-0 pointer-events-none hidden md:block overflow-hidden">
+<div
+	class="absolute inset-0 pointer-events-none hidden {$isOpen
+		? 'md:block'
+		: 'hidden'} overflow-hidden"
+>
 	<div class="absolute inset-0 opacity-[.03]">
 		<img
 			class="w-full h-full object-cover"
