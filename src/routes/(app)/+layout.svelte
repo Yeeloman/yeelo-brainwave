@@ -8,7 +8,7 @@
 {#snippet Header(image)}
 	<div class="h-[5rem] fixed top-0 left-0 w-full z-50 border-b border-gray-700 backdrop-blur-sm">
 		<div class="size-full flex items-center justify-between px-7">
-			<a href="/">
+			<a href="/" class="md:pr-5">
 				<img src={image} alt="Brain Wave" />
 			</a>
 			<nav class="flex justify-center items-center gap-7 md:hidden text-xs">
