@@ -38,7 +38,7 @@
 <div
 	class="absolute inset-0 pointer-events-none hidden {$isOpen
 		? 'md:block'
-		: 'hidden'} overflow-hidden"
+		: 'hidden'} overflow-hidden bg-[#0E0C15]"
 >
 	<div class="absolute inset-0 opacity-[.03]">
 		<img
